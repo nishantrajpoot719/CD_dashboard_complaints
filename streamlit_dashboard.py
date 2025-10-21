@@ -34,7 +34,7 @@ DATA_URL = "https://docs.google.com/spreadsheets/d/1MSYdK-Z4qjgudUI6Ky3t3U-Qc2Dx
 FOLDER_ID = "1uxnGomO1D2oJShW67c43GeobVbE1TLKZ"
 GOOGLE_AUTH_METHOD = "service_account"
 
-SERVICE_ACCOUNT_FILE = r"E:\Country Delight\Description_funneling\CD_dasboard_complaints-main\pipeline-for-classify-n-embed-482610fee321.json"
+SERVICE_ACCOUNT_FILE = st.secrets.get("google_service_account")
 
 THEME_COLORS = {
     "light": {
@@ -268,7 +268,7 @@ if 'df' not in st.session_state:
     st.session_state.df = pd.DataFrame()
 if 'vector_db_initialized' not in st.session_state:
     st.session_state.vector_db_initialized = True
-cerebras_key = "csk-tt8ftvcv9k6hwcnvedk92jw9vyjph4ew9kdjyf92hd2cd4f6"
+cerebras_key = st.secrets.get("CEREBRAS_API_KEY")
 if not cerebras_key:
     st.session_state.summary_output = "API key not configured. Check Streamlit Cloud secrets."
     
