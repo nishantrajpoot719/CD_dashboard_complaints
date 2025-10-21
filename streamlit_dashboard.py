@@ -17,6 +17,7 @@ import product_category
 import requests
 import io
 from pathlib import Path
+import json
 
 # Google Drive libs
 from google.oauth2 import service_account
@@ -34,7 +35,8 @@ DATA_URL = "https://docs.google.com/spreadsheets/d/1MSYdK-Z4qjgudUI6Ky3t3U-Qc2Dx
 FOLDER_ID = "1uxnGomO1D2oJShW67c43GeobVbE1TLKZ"
 GOOGLE_AUTH_METHOD = "service_account"
 
-SERVICE_ACCOUNT_FILE = st.secrets.get("google_service_account")
+SERVICE_ACCOUNT = st.secrets.get("google_service_account")
+SERVICE_ACCOUNT_FILE = json.loads(SERVICE_ACCOUNT)
 
 THEME_COLORS = {
     "light": {
