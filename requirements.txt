@@ -2,6 +2,7 @@ protobuf==3.20.3
 streamlit==1.32.0
 altair==4.2.2
 dspy
+json
 openpyxl
 chromadb
 sentence_transformers
