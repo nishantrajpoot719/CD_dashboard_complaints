@@ -1,0 +1,10 @@
+dspy
+openpyxl
+chromadb
+sentence_transformers
+scikit-learn
+gdown
+streamlit_theme
+plotly
+pandas
+numpy
