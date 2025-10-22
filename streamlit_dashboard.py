@@ -26,6 +26,7 @@ from googleapiclient.http import MediaIoBaseDownload
 from googleapiclient.errors import HttpError
 
 
+
 try:
     from streamlit_theme import st_theme
 except ImportError:
@@ -33,6 +34,7 @@ except ImportError:
 
 DATA_URL = "https://docs.google.com/spreadsheets/d/1MSYdK-Z4qjgudUI6Ky3t3U-Qc2Dxx95D/export?format=csv"
 FOLDER_ID = "1uxnGomO1D2oJShW67c43GeobVbE1TLKZ"
+
 GOOGLE_AUTH_METHOD = "service_account"
 
 SERVICE_ACCOUNT_FILE = st.secrets.get("google_service_account")
@@ -100,6 +102,9 @@ def download_drive_file(file_id: str, dest_path: Path):
             print(f"Download {file_id}: {int(status.progress() * 100)}%")
     print(f"Downloaded file to {dest_path}")
     return dest_path
+
+
+
 
 def detect_base_theme() -> str:
     """Return 'dark' or 'light' depending on the current browser theme."""
@@ -500,6 +505,8 @@ def render_kpi_cards(df: pd.DataFrame, title: str, caption: Optional[str] = None
             unsafe_allow_html=True,
         )
 
+def _google_api_key():
+    return st.secrets.get("GOOGLE_API_KEY") or os.getenv("GOOGLE_API_KEY")
 
 def _drive_list(folder_id: str, api_key: str):
     url = (
@@ -810,4 +817,3 @@ if __name__ == "__main__":
     st.divider()
     st.write("© 2025 Country Delight")
     st.write("Built with ❤️ by Digital Innovations Team | Country Delight")
-
